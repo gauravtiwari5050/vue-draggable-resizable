@@ -373,6 +373,10 @@ export default {
 
       this.elmX = this.left
       this.elmY = this.top
+      this.$emit('update:x', this.elmX)
+      this.$emit('update:y', this.elmY)
+      this.$emit('update:w', this.width)
+      this.$emit('update:h', this.height)
     }
   },
   computed: {
@@ -394,6 +398,22 @@ export default {
       if (val >= 0 || val === 'auto') {
         this.zIndex = val
       }
+    },
+    x: function (val) {
+      this.left = parseInt(val)
+      this.elmX = this.left
+    },
+    y: function (val) {
+      this.top = parseInt(val)
+      this.elmY = this.top
+    },
+    w: function (val) {
+      this.width = parseInt(val)
+      this.elmW = this.width
+    },
+    h: function (val) {
+      this.height = parseInt(val)
+      this.elmH = this.height
     }
   }
 }
